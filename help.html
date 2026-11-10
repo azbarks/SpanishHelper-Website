@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Help — Spanish Helper</title>
+<meta name="description" content="How to use Spanish Helper — starting words, the Today screen, schedules and the No Schedule line, the two learning steps, the Refresher, phrases, verbs, stories, Listen mode and settings.">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+<style>
+.help-hero {
+  padding: 60px 0 48px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 56px;
+}
+.help-hero h1 { font-size: clamp(2rem, 4vw, 2.8rem); margin-top: .3em; }
+.help-hero p  { font-size: 1.05rem; color: var(--ink-muted); margin-top: .7em; }
+
+.help-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* Sidebar */
+.help-sidebar {
+  position: sticky;
+  top: 80px;
+}
+.help-sidebar nav { display: flex; flex-direction: column; gap: 4px; }
+.help-sidebar a {
+  color: var(--ink-muted);
+  font-size: .92rem;
+  font-weight: 500;
+  padding: 7px 12px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+  transition: background .12s, color .12s;
+}
+.help-sidebar a:hover,
+.help-sidebar a.active {
+  background: var(--ember-pale);
+  color: var(--ember);
+}
+.help-sidebar .section-group {
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  padding: 16px 12px 4px;
+}
+
+/* Content */
+.help-section {
+  margin-bottom: 64px;
+  scroll-margin-top: 80px;
+}
+.help-section h2 {
+  font-size: 1.55rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 28px;
+}
+.help-section h2 .tab-icon {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: var(--ember-pale);
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.flame-bg { background: var(--flame-light) !important; }
+
+.help-section h3 {
+  font-size: 1.08rem;
+  margin: 24px 0 8px;
+  color: var(--ink);
+}
+.help-section p {
+  font-size: .96rem;
+  color: var(--ink-muted);
+  line-height: 1.65;
+  max-width: 62ch;
+}
+.help-section ul, .help-section ol {
+  margin: 8px 0 8px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.help-section li {
+  font-size: .95rem;
+  color: var(--ink-muted);
+  line-height: 1.6;
+  max-width: 60ch;
+}
+
+/* Q&A */
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.faq-item summary {
+  padding: 15px 20px;
+  font-weight: 600;
+  font-size: .97rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--surface);
+  color: var(--ink);
+  user-select: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: '+'; font-size: 1.2rem; color: var(--ember); transition: transform .2s; }
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item[open] summary { border-bottom: 1px solid var(--border); }
+.faq-body {
+  padding: 16px 20px;
+  font-size: .93rem;
+  color: var(--ink-muted);
+  line-height: 1.65;
+  background: var(--ground);
+}
+.faq-body p + p { margin-top: .7em; }
+
+/* Tip box */
+.tip {
+  background: var(--ember-pale);
+  border-left: 3px solid var(--ember);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: .93rem;
+  color: var(--ink);
+}
+.tip strong { color: var(--ember); }
+
+/* Status pills */
+.actions-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 14px 0;
+}
+.action-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: .85rem;
+  font-weight: 600;
+  border: 1.5px solid;
+}
+.arrow { color: var(--ink-muted); font-weight: 700; }
+
+/* Field table */
+.field-table {
+  width: 100%;
+  max-width: 640px;
+  border-collapse: collapse;
+  font-size: .9rem;
+  margin: 16px 0 18px;
+}
+.field-table th {
+  background: var(--ember-pale);
+  color: var(--ember);
+  font-weight: 700;
+  text-align: left;
+  padding: 9px 14px;
+  border-bottom: 2px solid var(--border);
+}
+.field-table td {
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--ink-muted);
+  vertical-align: top;
+}
+.field-table td:first-child { color: var(--ink); font-weight: 600; white-space: nowrap; }
+.field-table tr:last-child td { border-bottom: none; }
+
+@media (max-width: 700px) {
+  .help-layout { grid-template-columns: 1fr; }
+  .help-sidebar { display: none; }
+  .field-table td:first-child { white-space: normal; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/icon.png" alt="" class="nav-logo-icon">
+      Spanish Helper
+    </a>
+    <ul class="nav-links">
+      <li><a href="help.html" aria-current="page">Help</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="index.html#download" class="nav-cta">Download</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+<div class="page-content">
+
+  <div class="help-hero">
+    <p class="eyebrow">Documentation</p>
+    <h1>How to use Spanish Helper</h1>
+    <p>Starting words, the Today screen, schedules and the No Schedule line, the two learning steps, the Refresher, phrases, verbs, stories, Listen mode and settings — everything, from your first day.</p>
+  </div>
+
+  <div class="help-layout">
+
+    <!-- Sidebar -->
+    <aside class="help-sidebar">
+      <nav aria-label="Help sections">
+        <div class="section-group">Start Here</div>
+        <a href="#getting-started">🚀 Getting Started</a>
+        <a href="#idea">🎯 Why these words</a>
+        <div class="section-group">Today</div>
+        <a href="#today">☀️ The Today screen</a>
+        <a href="#answering">✅ Right or missed</a>
+        <a href="#line">🚶 The No Schedule line</a>
+        <a href="#schedules">📅 Schedules</a>
+        <a href="#steps">↔️ Two learning steps</a>
+        <a href="#missed">🔁 Missed — Try Again</a>
+        <a href="#refresher">🌱 The Refresher</a>
+        <a href="#week">📊 This Week</a>
+        <div class="section-group">Words</div>
+        <a href="#words-tab">📚 The Words tab</a>
+        <a href="#sort">🗂 Sorting the Word Bank</a>
+        <a href="#swipes">👆 Swipes &amp; menus</a>
+        <a href="#phrases">💬 Phrases &amp; examples</a>
+        <a href="#own">➕ Your own words</a>
+        <div class="section-group">More</div>
+        <a href="#verbs">🔀 Verbs</a>
+        <a href="#talk">🗣 Talk</a>
+        <a href="#stories">📖 Stories</a>
+        <a href="#listen">🎧 Listen</a>
+        <a href="#settings">⚙️ Settings</a>
+        <a href="#data">💾 Your data</a>
+        <a href="#faq">❓ FAQ</a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <div class="help-content">
+
+      <!-- Getting Started -->
+      <section class="help-section" id="getting-started">
+        <h2><span class="tab-icon">🚀</span> Getting Started</h2>
+        <p>Spanish Helper teaches the words and phrases you'll hear and say most in everyday Mexican Spanish. Each word you're studying comes back to you — on a schedule, or in a line — until you know it both ways, then it steps aside so you can learn the next one.</p>
+
+        <h3>Your first day</h3>
+        <ol>
+          <li><strong>Mark what you already know (optional, but worth it).</strong> On the Today tab, tap <strong>Sort the Word Bank</strong>. It shows the most common words one at a time — tap <strong>I Know It</strong> for the ones you know and <strong>Learn It</strong> for the ones you want to study. See <a href="#sort">Sorting the Word Bank</a>.</li>
+          <li><strong>Or just start.</strong> Scroll to <strong>Learn Something New</strong> on Today and tap <strong>Start 5 new words</strong>. They're the next most common words you haven't started.</li>
+          <li><strong>Answer each card.</strong> Tap a card to see the answer and hear it, then tap <strong>✓</strong> if you knew it or <strong>✗</strong> if you didn't.</li>
+          <li><strong>Come back tomorrow.</strong> A few minutes a day beats an hour once a week.</li>
+        </ol>
+        <div class="tip"><strong>A good pace:</strong> add about 5 new words a day, and keep your No Schedule line between 50 and 100 words. The line tells you how often each word comes around — if that number climbs past two weeks, slow down on new words for a few days.</div>
+      </section>
+
+      <!-- Idea -->
+      <section class="help-section" id="idea">
+        <h2><span class="tab-icon flame-bg">🎯</span> Why these words</h2>
+        <p>Many courses teach by topic — the airport, the office, even "HVAC maintenance." Spanish Helper starts instead with the words people actually use most. A few hundred common words make up most of everyday conversation, so every word you learn here pays off right away.</p>
+        <ul>
+          <li><strong>Mexican Spanish only.</strong> Words, notes and the voice are Mexican — <em>carro</em>, <em>camión</em>, <em>platicar</em>, <em>ahorita</em> — and the app uses <em>ustedes</em>, never <em>vosotros</em>.</li>
+          <li><strong>Most common first.</strong> The Word Bank is in frequency order, so "Learn Something New" always gives you the most useful words you don't know yet.</li>
+          <li><strong>Present tense first.</strong> Example sentences skip the past tense until you're ready (you can turn that off). "Going to" — <em>voy a comer</em>, "I'm going to eat" — is included, because it's the easy, everyday way to talk about the future.</li>
+        </ul>
+      </section>
+
+      <!-- Today -->
+      <section class="help-section" id="today">
+        <h2><span class="tab-icon">☀️</span> The Today screen</h2>
+        <p>Today — <strong>Hoy</strong> — is where you study. From top to bottom:</p>
+        <table class="field-table">
+          <tr><th>Section</th><th>What it is</th></tr>
+          <tr><td>Everything / Words / Phrases</td><td>A filter for the whole screen. It's remembered.</td></tr>
+          <tr><td>Progress</td><td>How many of today's <em>scheduled</em> words you've answered. "¡Terminaste!" when they're all done.</td></tr>
+          <tr><td>This Week</td><td>Words learned, your percent right, and your streak. Tap it for more — see <a href="#week">This Week</a>.</td></tr>
+          <tr><td>Daily, Every 2 Days…</td><td>Words on a schedule that are due today, Daily first. See <a href="#schedules">Schedules</a>.</td></tr>
+          <tr><td>No Schedule · Words / Phrases</td><td>The next few words and phrases waiting in your line. See <a href="#line">The No Schedule line</a>.</td></tr>
+          <tr><td>Refresher</td><td>A few words you've already learned, so they stay fresh. See <a href="#refresher">The Refresher</a>.</td></tr>
+          <tr><td>Missed — Try Again</td><td>Words you missed, for a second try. See <a href="#missed">Missed</a>.</td></tr>
+          <tr><td>Learn Something New</td><td>Start the next most common words or phrases, and the link to <a href="#sort">Sort the Word Bank</a>.</td></tr>
+          <tr><td>Coming Up</td><td>How many scheduled words come up on each of the next 7 days.</td></tr>
+        </table>
+        <p>The <strong>🎧 headphones</strong> button at the top opens <a href="#listen">Listen</a>.</p>
+      </section>
+
+      <!-- Answering -->
+      <section class="help-section" id="answering">
+        <h2><span class="tab-icon flame-bg">✅</span> Right or missed</h2>
+        <p>Each card shows one side — Spanish or English, depending on its <a href="#steps">step</a>. Say the answer to yourself (out loud is even better), then <strong>tap the card</strong> to check. It shows the meaning, an example sentence and any notes, and says the Spanish.</p>
+        <div class="actions-row">
+          <span class="action-pill" style="color:var(--ember);border-color:var(--ember)">✓ Got it</span>
+          <span class="arrow">or</span>
+          <span class="action-pill" style="color:var(--flame);border-color:var(--flame)">✗ Missed it</span>
+        </div>
+        <ul>
+          <li><strong>✓</strong> adds a day to its streak — the dots under the card. Only one correct answer a day counts: four taps in one sitting isn't four days of remembering.</li>
+          <li><strong>✗</strong> starts the streak over and puts the word on the <a href="#missed">Missed</a> list for another try. A word on a schedule also moves one step more often.</li>
+        </ul>
+        <p>A scheduled word you got right shows a green check for the rest of the day — tap it to undo if you tapped by mistake.</p>
+        <div class="tip"><strong>Be honest.</strong> If you hesitated for a long time or only half-remembered it, tap ✗. The app uses your answers to decide when to show each word again — a generous ✓ just means you'll see it less before you really know it.</div>
+      </section>
+
+      <!-- No Schedule line -->
+      <section class="help-section" id="line">
+        <h2><span class="tab-icon">🚶</span> The No Schedule line</h2>
+        <p>New words start on <strong>No Schedule</strong>. Instead of a date, they wait in a line — one line for words and one for phrases. Today shows the next 10 words and 5 phrases (you can change that in <a href="#settings">Settings</a>).</p>
+        <ul>
+          <li>Answer a card and it leaves the page; the next one in line slides in. You can keep going through the whole line if you have time.</li>
+          <li>If you stop partway, <strong>tomorrow starts right where you left off</strong> — a bookmark, not a restart.</li>
+          <li>The header shows where the bookmark is: <em>Word 11 of 40</em> means today starts with the 11th word of 40 in your line.</li>
+          <li>The footer is the <strong>line gauge</strong>: "40 in the line · each comes around about every 4 days." It turns orange past two weeks — a sign to slow down on new words.</li>
+          <li>When you've gone through the whole line, it says <strong>All 40 done for today</strong>, with a <strong>Go Around Again</strong> button if you want more.</li>
+          <li>New words you start join the line right after the bookmark, so they come up next.</li>
+        </ul>
+        <div class="tip"><strong>Answer in order.</strong> The bookmark only moves past words you've answered. If you don't want to see a word for a while, swipe it away (Pause or Learned) instead of skipping over it.</div>
+      </section>
+
+      <!-- Schedules -->
+      <section class="help-section" id="schedules">
+        <h2><span class="tab-icon flame-bg">📅</span> Schedules</h2>
+        <p>Any word can instead be put on a schedule — useful for words that keep giving you trouble (Daily) or ones you nearly know (Weekly).</p>
+        <table class="field-table">
+          <tr><th>Schedule</th><th>Comes up</th></tr>
+          <tr><td>Daily</td><td>Every day</td></tr>
+          <tr><td>Every 2 / 3 / 4 Days</td><td>On its day, every few days</td></tr>
+          <tr><td>Weekly</td><td>Once a week</td></tr>
+          <tr><td>Every 2 Weeks</td><td>Twice a month</td></tr>
+          <tr><td>Monthly</td><td>Once a month</td></tr>
+        </table>
+        <ul>
+          <li><strong>Swipe left</strong> on a card for <strong>More Often</strong> (or <strong>Daily</strong>, for a No Schedule word); <strong>swipe right</strong> on a scheduled card for <strong>Less Often</strong>. Long-press → <strong>Schedule</strong> to pick any one, or go back to No Schedule.</li>
+          <li><strong>Missed a day? Nothing piles up.</strong> A word that wasn't answered on its day simply waits for its next turn — so a week away doesn't leave you with a mountain of reviews.</li>
+          <li><strong>Load balancing</strong> spreads words with the same schedule across different days: set 20 words to Every 4 Days and you'll see about 5 a day, not 20 at once.</li>
+          <li><strong>Automatic spacing</strong> (off unless you turn it on in Settings) moves a scheduled word one step less often each time you get it right.</li>
+        </ul>
+      </section>
+
+      <!-- Steps -->
+      <section class="help-section" id="steps">
+        <h2><span class="tab-icon">↔️</span> Two learning steps</h2>
+        <p>Recognizing a word and being able to say it are different skills, so every word goes through two steps:</p>
+        <table class="field-table">
+          <tr><th>Step</th><th>You see</th><th>You do</th></tr>
+          <tr><td>Step 1</td><td>The Spanish</td><td>Remember what it means</td></tr>
+          <tr><td>Step 2</td><td>The English</td><td>Say it in Spanish</td></tr>
+        </table>
+        <p>The line under each card shows its progress — <em>Step 1 · 2 of 4 days</em> and a row of dots. After 4 correct days in a row (you can change the number), the app <strong>asks</strong> — it never moves a word on its own:</p>
+        <ul>
+          <li>At the end of Step 1: <strong>Yes — English First</strong>, <strong>Mark It Learned</strong> (if it's easy), or <strong>Keep Studying</strong>.</li>
+          <li>At the end of Step 2: <strong>Mark It Learned</strong>, <strong>Not Yet</strong> (keep studying, but less often), or <strong>Keep Studying</strong>.</li>
+        </ul>
+        <p><strong>Keep Studying</strong> keeps half your progress (4 of 4 becomes 2 of 4), so it asks again after a couple more good days.</p>
+        <p>Missing a Step 2 word starts its count over but keeps it English first. If you miss it three times, the app asks whether to put it on Daily, pause it, or go <strong>Back to Spanish First</strong>. You can also switch a word's step any time from the long-press menu.</p>
+        <div class="tip"><strong>Already know a word?</strong> Swipe left → <strong>Learned</strong> and skip the steps entirely.</div>
+      </section>
+
+      <!-- Missed -->
+      <section class="help-section" id="missed">
+        <h2><span class="tab-icon flame-bg">🔁</span> Missed — Try Again</h2>
+        <p>Words you miss go to the <strong>Missed — Try Again</strong> list near the bottom of Today, oldest first. Get one right there and it leaves the list. It's there for a second look whenever you want one — and each word still comes around again on its normal turn.</p>
+        <p>If you miss the same word on three different days, the app asks whether to <strong>Put It on Daily</strong>, <strong>Pause It for a Month</strong>, or <strong>Leave It</strong>.</p>
+      </section>
+
+      <!-- Refresher -->
+      <section class="help-section" id="refresher">
+        <h2><span class="tab-icon">🌱</span> The Refresher</h2>
+        <p>Learned words leave your daily study — but they're not gone. Each day the <strong>Refresher</strong> brings back 3 of them (change the number in Settings), the ones you haven't seen in longest, so over time it cycles through everything you've learned. Learned words are shown English first, the harder test.</p>
+        <p>Miss a Refresher word and the app asks:</p>
+        <ul>
+          <li><strong>Study It Again</strong> — it goes back on your list, English first. Since you knew it once, <strong>one</strong> correct day brings back the "learned?" question.</li>
+          <li><strong>Keep It Learned</strong> — it stays Learned, but comes <strong>first in the Refresher every day</strong> until you get it right. Then it goes back to the normal rotation.</li>
+        </ul>
+        <p>On a Refresher card, swipe right for <strong>Still Know It</strong>, or swipe left to <strong>Study Again</strong> or <strong>Never Remind</strong> me.</p>
+      </section>
+
+      <!-- Week -->
+      <section class="help-section" id="week">
+        <h2><span class="tab-icon flame-bg">📊</span> This Week</h2>
+        <p>Tap the <strong>This Week</strong> row on Today to see words learned this week, right and missed answers, days practiced, your streak, how many words you're studying, your <strong>Trickiest Words</strong> (missed most this week) and the words <strong>Closest to Learned</strong>.</p>
+        <p><strong>Coming Up</strong>, at the bottom of Today, counts the scheduled words for each of the next 7 days. No Schedule words aren't counted there — they don't have dates.</p>
+      </section>
+
+      <!-- Words tab -->
+      <section class="help-section" id="words-tab">
+        <h2><span class="tab-icon">📚</span> The Words tab</h2>
+        <p>Every word and phrase in the app, in four lists:</p>
+        <table class="field-table">
+          <tr><th>List</th><th>What's in it</th></tr>
+          <tr><td>Studying</td><td>Everything you're working on, grouped by schedule, plus any words you've <strong>Paused</strong> (with the day they come back). Orange badge = comes up today; teal = a later day.</td></tr>
+          <tr><td>Word Bank</td><td>Words you haven't started, most common first. Tap one to start it. Words you marked Not Interested sink to the bottom.</td></tr>
+          <tr><td>Learned</td><td>Words you know. The Refresher draws from here.</td></tr>
+          <tr><td>All</td><td>Everything.</td></tr>
+        </table>
+        <p>Use the filter for Everything / Words / Phrases, and the search bar for Spanish or English. Tap any word to see and edit it — its meaning, example, notes, schedule, step, and how many times you've gotten it right and missed it.</p>
+      </section>
+
+      <!-- Sort -->
+      <section class="help-section" id="sort">
+        <h2><span class="tab-icon flame-bg">🗂</span> Sorting the Word Bank</h2>
+        <p>If you already know some Spanish, sorting saves you from studying words you know. Tap <strong>Sort the Word Bank</strong> on Today (or the Sort button on the Words tab). Words come up one at a time, most common first; tap to see the meaning, then choose:</p>
+        <table class="field-table">
+          <tr><th>Button</th><th>What happens</th></tr>
+          <tr><td>I Know It</td><td>Marked Learned. The Refresher will check on it now and then.</td></tr>
+          <tr><td>Know It, Never Remind</td><td>For words you've known for years (<em>uno, dos, hola</em>) — it never comes up again.</td></tr>
+          <tr><td>Learn It</td><td>Starts studying it.</td></tr>
+          <tr><td>Not Now</td><td>Leaves it in the Word Bank for later.</td></tr>
+        </table>
+        <p><strong>Undo</strong> takes back the last choice. To keep a word from ever being offered, long-press it → <strong>Not Interested</strong>.</p>
+      </section>
+
+      <!-- Swipes -->
+      <section class="help-section" id="swipes">
+        <h2><span class="tab-icon">👆</span> Swipes &amp; menus</h2>
+        <h3>Swipes</h3>
+        <table class="field-table">
+          <tr><th>Card</th><th>Swipe right</th><th>Swipe left</th></tr>
+          <tr><td>No Schedule</td><td>Pause</td><td>Daily · Learned</td></tr>
+          <tr><td>On a schedule</td><td>Less Often</td><td>More Often · Learned</td></tr>
+          <tr><td>Learned / Refresher</td><td>Still Know It</td><td>Study Again · Never Remind</td></tr>
+          <tr><td>Paused</td><td>Bring Back Now</td><td>—</td></tr>
+        </table>
+        <p><strong>Pause</strong> sets a word aside for 2 weeks, 1 month, 3 months, or a number of days you choose. On that day it comes back to your line, next up.</p>
+        <h3>Long-press menu</h3>
+        <p>Press and hold any card for everything else: <strong>Schedule</strong>, <strong>Mark Learned</strong>, switch <strong>Step</strong>, <strong>Pause</strong>, <strong>Back to Word Bank</strong> (at the end, or in its usual place), <strong>Not Interested</strong>, <strong>I Know It — Never Remind Me</strong>, <strong>Verb Endings</strong> (verbs), <strong>Say the Example</strong>, and <strong>Edit</strong>.</p>
+        <div class="tip"><strong>Never Remind Me</strong> hides a word everywhere but still counts it as known. Changed your mind? <strong>Settings → Progress → Never Remind Me</strong> lists them, with <strong>Bring Back</strong>.</div>
+      </section>
+
+      <!-- Phrases -->
+      <section class="help-section" id="phrases">
+        <h2><span class="tab-icon flame-bg">💬</span> Phrases &amp; examples</h2>
+        <p>Phrases are where words come alive, so the app makes them easy to collect. When you check a word's card you'll see an example sentence with two buttons:</p>
+        <ul>
+          <li><strong>Add to My Phrases</strong> — the sentence becomes a phrase you're studying, next up in your phrase line. A moment later the <strong>next example</strong> for that word appears, so you can add another.</li>
+          <li><strong>Another example</strong> — see the next sentence without adding this one.</li>
+        </ul>
+        <p>The most common words and every verb have several examples, mixing <em>I</em>, <em>you</em>, <em>he/she</em>, <em>we</em> and <em>they</em>. The 💬+ bubble next to sentences in Talk and Stories adds those too. The app never adds the same phrase twice.</p>
+      </section>
+
+      <!-- Own words -->
+      <section class="help-section" id="own">
+        <h2><span class="tab-icon">➕</span> Your own words</h2>
+        <p>Heard a word you want to learn? On the Words tab, tap <strong>+</strong>, choose Word or Phrase, and fill in the Spanish and English (an example and notes are optional). It starts on No Schedule, next up. If it's already in the app, Spanish Helper tells you where instead of making a duplicate.</p>
+        <p>You can also edit any built-in word — fix a meaning, add your own note. Updates to the app never overwrite your edits.</p>
+      </section>
+
+      <!-- Verbs -->
+      <section class="help-section" id="verbs">
+        <h2><span class="tab-icon flame-bg">🔀</span> Verbs</h2>
+        <p>The <strong>Verbs</strong> tab has conjugation tables for all 236 verbs in the app. Start with <strong>How Spanish verbs work</strong> at the top — a short, plain-English explanation of endings and what to learn first.</p>
+        <ul>
+          <li>Filter by <strong>All</strong>, <strong>Irregular</strong>, <strong>Regular</strong> or <strong>Studying</strong>, and search.</li>
+          <li>Each verb shows <strong>Present</strong>, <strong>Past</strong>, <strong>Near future</strong> (<em>voy a</em> + verb), <strong>Future</strong> and <strong>Present perfect</strong>, for <em>yo, tú, él / ella / usted, nosotros, ustedes</em> and <em>ellos / ellas</em>. Irregular forms are in <span style="color:#E07B1F;font-weight:600">orange</span>.</li>
+          <li><strong>Quiz Me</strong> (the eye button) hides every form until you tap it.</li>
+          <li>A verb's card on Today has a <strong>Verb endings</strong> button that opens its tables.</li>
+        </ul>
+      </section>
+
+      <!-- Talk -->
+      <section class="help-section" id="talk">
+        <h2><span class="tab-icon">🗣</span> Talk</h2>
+        <p>The <strong>Talk</strong> tab is the step from flashcards to conversation.</p>
+        <h3>Ask Today</h3>
+        <p>Three simple questions a day to ask someone who speaks Spanish — a spouse, a friend, a neighbor — each with a follow-up line. Tap one to hear it. <strong>Show 3 More</strong> gives you another three. A green line lists the words in it that you're studying.</p>
+        <h3>Dialogues</h3>
+        <p>Short conversations for everyday situations: meeting a neighbor, ordering at a restaurant, the market, a taxi, the pharmacy, asking directions, and when you don't understand. Three ways to practice:</p>
+        <ul>
+          <li><strong>Listen</strong> — hear both sides.</li>
+          <li><strong>My Part</strong> — your lines show in English; the app pauses so you can say them in Spanish, then says them so you can check.</li>
+          <li><strong>Other Part</strong> — the same, playing the other person.</li>
+        </ul>
+        <h3>Watch</h3>
+        <p>A link to <strong>Dreaming Spanish</strong> on YouTube — free videos in easy Spanish by native speakers, sorted by level. Start with the Superbeginner videos.</p>
+      </section>
+
+      <!-- Stories -->
+      <section class="help-section" id="stories">
+        <h2><span class="tab-icon flame-bg">📖</span> Stories</h2>
+        <p>Short, easy stories to listen to and read — 57 in all, in three levels. Level 1 uses only the present tense and "going to"; Level 2 adds the past; Level 3 is longer and mixes tenses.</p>
+        <ul>
+          <li>Each story shows <strong>You know N%</strong> — how many of its words you're studying or have learned. The higher it is, the more you'll understand.</li>
+          <li>The Talk tab shows <strong>your shelf</strong> of a few stories at a time. <strong>Give Me Another Story</strong> adds the one with the most words you know, at the level you choose.</li>
+          <li>In a story, tap ▶ to hear it, tap any sentence to hear it again, and turn on <strong>English</strong> at the top when you need it. Words you know are in <span style="color:var(--ember);font-weight:600">green</span>.</li>
+          <li>Done with one? Swipe left → <strong>Finished</strong> (or <strong>Not for Me</strong>), or tap <strong>I'm Done with This Story</strong> at the bottom. <strong>Finished</strong> keeps them, and <strong>All Stories</strong> lists every story by level.</li>
+        </ul>
+        <div class="tip"><strong>Try this:</strong> listen first without reading, then read along, and only then peek at the English.</div>
+      </section>
+
+      <!-- Listen -->
+      <section class="help-section" id="listen">
+        <h2><span class="tab-icon">🎧</span> Listen</h2>
+        <p>For the car, a walk, or the dishes. Tap the <strong>🎧 headphones</strong> on Today. Listen says the English, pauses so you can answer out loud, then says the Spanish — and moves to the next word on its own.</p>
+        <table class="field-table">
+          <tr><th>Choice</th><th>What it does</th></tr>
+          <tr><td>Today</td><td>Today's scheduled words, then your No Schedule line from the bookmark on.</td></tr>
+          <tr><td>Daily</td><td>Your Daily words plus any you've missed — the hard ones.</td></tr>
+          <tr><td>All Studying</td><td>Everything you're studying.</td></tr>
+          <tr><td>Learned</td><td>Everything you've learned.</td></tr>
+          <tr><td>Time to answer</td><td>How long it pauses, set separately for words (4 seconds) and phrases (6 seconds).</td></tr>
+          <tr><td>English first</td><td>Turn off to hear the Spanish first instead.</td></tr>
+          <tr><td>Say the answer twice</td><td>Repeats the Spanish.</td></tr>
+          <tr><td>Shuffle</td><td>Mixes up the order.</td></tr>
+        </table>
+        <p>It keeps playing with the screen locked, over Bluetooth in the car, and the lock screen and steering-wheel buttons pause and skip. Next time it picks up where you stopped. Listening is extra practice — it doesn't change any word's progress.</p>
+      </section>
+
+      <!-- Settings -->
+      <section class="help-section" id="settings">
+        <h2><span class="tab-icon flame-bg">⚙️</span> Settings</h2>
+        <table class="field-table">
+          <tr><th>Section</th><th>What you can change</th></tr>
+          <tr><td>Daily Study</td><td>How many new words (5) and phrases (3) <em>Learn Something New</em> starts, and how many Refresher words a day (3).</td></tr>
+          <tr><td>No Schedule</td><td>How many words (10) and phrases (5) from your line Today shows at a time.</td></tr>
+          <tr><td>Automatic Spacing</td><td>Move a scheduled word one step less often each time you get it right. Off by default.</td></tr>
+          <tr><td>Example Sentences</td><td><strong>No past tense yet</strong> — hides past-tense example sentences. On by default.</td></tr>
+          <tr><td>Load Balancing</td><td>Spread scheduled words evenly across days, and <strong>Balance Now</strong>.</td></tr>
+          <tr><td>Learning Steps</td><td>How many correct days each step needs before the app asks (4 and 4).</td></tr>
+          <tr><td>Cards</td><td>Say the word when you tap a card.</td></tr>
+          <tr><td>Voice</td><td>Speaking speed, and a test button. The voice is always Mexican Spanish.</td></tr>
+          <tr><td>Progress</td><td>How many of the core words you know, totals of right and missed answers, and your <strong>Never Remind Me</strong> words.</td></tr>
+          <tr><td>Backup</td><td>Export, restore, and more — see <a href="#data">Your data</a>.</td></tr>
+          <tr><td>About</td><td>The app's version.</td></tr>
+        </table>
+      </section>
+
+      <!-- Data -->
+      <section class="help-section" id="data">
+        <h2><span class="tab-icon">💾</span> Your data</h2>
+        <p>Everything stays on your iPhone. There's no account and nothing is sent anywhere. It is <strong>not</strong> synced through iCloud, so a backup is the way to move to a new phone.</p>
+        <ul>
+          <li><strong>Export Backup</strong> saves a file of all your words, schedules and progress — send it to Files, AirDrop or email.</li>
+          <li><strong>Restore from Backup</strong> merges a backup in: words in the backup take its progress, new ones are added, and nothing is deleted.</li>
+          <li><strong>Restore Missing Built-in Words</strong> adds back any of the built-in words that aren't on your phone.</li>
+          <li><strong>Reset All Progress</strong> sends every word back to the Word Bank. Your own words and edits are kept. Export a backup first!</li>
+        </ul>
+        <p>Your story shelf and settings live on the phone and aren't part of the backup.</p>
+      </section>
+
+      <!-- FAQ -->
+      <section class="help-section" id="faq">
+        <h2><span class="tab-icon flame-bg">❓</span> FAQ</h2>
+
+        <details class="faq-item">
+          <summary>I skipped a few days. Do I have a pile of reviews now?</summary>
+          <div class="faq-body"><p>No. A scheduled word that wasn't answered on its day just waits for its next turn, and your No Schedule line picks up at the bookmark. Come back whenever you can.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Should I put new words on Daily or leave them on No Schedule?</summary>
+          <div class="faq-body"><p>Leave them on No Schedule — that's what it's for. With a line of 50–100 words, each comes back every few days. Put a word on Daily only when it keeps slipping away.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Should I learn words first or phrases?</summary>
+          <div class="faq-body"><p>Both, together. Words give you the pieces; phrases show how they fit. A good habit: when you check a word you're learning, add one of its example sentences as a phrase.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Why did a word come up English first?</summary>
+          <div class="faq-body"><p>It's in Step 2, or it's a Learned word in the Refresher. See <a href="#steps">Two learning steps</a>. Long-press a card to switch its step.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary>I got a word right four days in a row — why didn't it move on?</summary>
+          <div class="faq-body"><p>The app asks before moving a word on. If you tapped Keep Studying, it kept half your progress and will ask again after a couple more correct days.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Where are the past-tense examples?</summary>
+          <div class="faq-body"><p>Hidden while <strong>Settings → Example Sentences → No past tense yet</strong> is on. Turn it off when you're ready. The Verbs tab always shows the past tense tables.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Is this Spain Spanish or Mexican Spanish?</summary>
+          <div class="faq-body"><p>Mexican, throughout — the words, the notes, the example sentences and the voice. There's no <em>vosotros</em>; like Mexico, the app uses <em>ustedes</em> for "you all."</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Does it work without internet?</summary>
+          <div class="faq-body"><p>Yes. Everything — including the Spanish voice — works offline. Only the Dreaming Spanish link needs the internet.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How do I move to a new iPhone?</summary>
+          <div class="faq-body"><p>Settings → Backup → <strong>Export Backup</strong> on the old phone and save the file to Files or AirDrop it. On the new phone, <strong>Restore from Backup</strong> and pick the file.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary>A word or translation looks wrong.</summary>
+          <div class="faq-body"><p>Tap the word on the Words tab and fix it — your edit is kept. And please <a href="support.html">let me know</a> so I can fix it for everyone.</p></div>
+        </details>
+      </section>
+
+    </div>
+  </div>
+
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© 2026 Spanish Helper · Built by Bruce Barclay</span>
+    <ul class="footer-links">
+      <li><a href="help.html">Help</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

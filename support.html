@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support — Spanish Helper</title>
+<meta name="description" content="Get help with Spanish Helper. Contact support, report a bug, or suggest a correction.">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+<style>
+.support-hero {
+  padding: 60px 0 40px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 52px;
+}
+.support-hero h1 { font-size: clamp(1.9rem, 3.5vw, 2.6rem); margin-top: .3em; }
+.support-hero p  { font-size: 1.05rem; color: var(--ink-muted); margin-top: .7em; }
+
+.support-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 56px;
+}
+
+.support-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+}
+.support-card .card-icon {
+  font-size: 2rem;
+  margin-bottom: 14px;
+  display: block;
+}
+.support-card h2 { font-size: 1.25rem; margin-bottom: 10px; }
+.support-card p  { font-size: .93rem; color: var(--ink-muted); line-height: 1.6; margin-bottom: 20px; }
+
+.email-link,
+.help-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 10px 18px;
+  border-radius: 8px;
+  transition: background .12s;
+  text-decoration: none;
+  border: 1.5px solid;
+}
+.email-link { color: var(--ember); border-color: var(--ember); }
+.email-link:hover { background: var(--ember-pale); text-decoration: none; }
+.help-link { color: var(--ink); border-color: var(--border); }
+.help-link:hover { background: var(--flame-light); text-decoration: none; }
+
+/* What to include */
+.include-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  max-width: 620px;
+}
+.include-box h3 { font-size: 1.1rem; margin-bottom: 14px; }
+.include-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.include-list li {
+  display: flex;
+  gap: 10px;
+  font-size: .93rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+.include-list li::before {
+  content: '→';
+  color: var(--ember);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.response-note {
+  margin-top: 40px;
+  font-size: .9rem;
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+@media (max-width: 640px) {
+  .support-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/icon.png" alt="" class="nav-logo-icon">
+      Spanish Helper
+    </a>
+    <ul class="nav-links">
+      <li><a href="help.html">Help</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="support.html" aria-current="page">Support</a></li>
+      <li><a href="index.html#download" class="nav-cta">Download</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+<div class="page-content">
+
+  <div class="support-hero">
+    <p class="eyebrow">Get in touch</p>
+    <h1>Support</h1>
+    <p>Spanish Helper is built by one person who is learning Spanish with it every day, and I read every message. A bug, a question, a word that sounds wrong to a Mexican ear — I'd like to hear it.</p>
+  </div>
+
+  <div class="support-grid">
+    <div class="support-card">
+      <span class="card-icon">📖</span>
+      <h2>Check the Help docs first</h2>
+      <p>The Today screen, schedules and the No Schedule line, the two learning steps, the Refresher, Listen, stories and settings are all covered in Help.</p>
+      <a href="help.html" class="help-link">Browse Help &rarr;</a>
+    </div>
+
+    <div class="support-card">
+      <span class="card-icon">✉️</span>
+      <h2>Email support</h2>
+      <p>For bugs, questions, corrections or feature requests, send an email. Include your app version (Settings → About → Version) so I can reproduce the issue.</p>
+      <a href="mailto:azbarks@gmail.com?subject=Spanish%20Helper" class="email-link">azbarks@gmail.com</a>
+    </div>
+  </div>
+
+  <div class="include-box">
+    <h3>For bug reports, include:</h3>
+    <ul class="include-list">
+      <li>What you expected to happen</li>
+      <li>What actually happened</li>
+      <li>Steps to reproduce it (the simpler the better)</li>
+      <li>Your iOS version and Spanish Helper version (Settings → About)</li>
+      <li>The word or phrase involved, if there was one</li>
+    </ul>
+  </div>
+
+  <p class="response-note">I typically respond within a few days. ¡Gracias por tu paciencia!</p>
+
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© 2026 Spanish Helper · Built by Bruce Barclay</span>
+    <ul class="footer-links">
+      <li><a href="help.html">Help</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

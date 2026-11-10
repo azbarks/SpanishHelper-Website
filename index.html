@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spanish Helper</title>
+<meta name="description" content="Learn the most common words and everyday phrases of Mexican Spanish — a few minutes a day, on a schedule that brings each word back just before you forget it.">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── Hero ── */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 60px;
+  align-items: center;
+  padding: 80px 0 72px;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--ember-pale);
+  color: var(--ember);
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 22px;
+  color: var(--ink);
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--ember);
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: var(--ink-muted);
+  max-width: 46ch;
+  margin-bottom: 36px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn-soon {
+  background: var(--ember-pale);
+  color: var(--ember);
+  border: 1.5px solid var(--ember);
+  cursor: default;
+}
+.btn-soon:hover { transform: none; box-shadow: none; }
+
+.hero-phone {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.phone-frame {
+  width: 240px;
+  background: var(--nav-bg);
+  border-radius: 38px;
+  border: 6px solid rgba(255,255,255,.12);
+  box-shadow: 0 30px 80px rgba(14,61,39,.32), 0 0 0 1px rgba(255,255,255,.04);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-notch {
+  width: 80px;
+  height: 26px;
+  background: var(--nav-bg);
+  border-radius: 0 0 16px 16px;
+  align-self: center;
+  margin-top: -1px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* The mock screen is always light, like the app in light mode. */
+.phone-screen {
+  flex: 1;
+  background: #F2F2F7;
+  padding: 14px 12px 18px;
+  overflow: hidden;
+}
+
+.mock-title {
+  font-family: system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.mock-list {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+  overflow: hidden;
+}
+
+.mock-row {
+  display: flex;
+  gap: 8px;
+  padding: 9px 10px;
+  border-bottom: 1px solid #ECECEF;
+  align-items: flex-start;
+}
+.mock-row:last-child { border-bottom: none; }
+.mock-btns { display: flex; gap: 4px; flex-shrink: 0; padding-top: 2px; }
+.mock-btn {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid;
+  font-size: 9px;
+  line-height: 13px;
+  text-align: center;
+  font-weight: 700;
+}
+.mock-ok { color: #2E9E4F; border-color: #2E9E4F; }
+.mock-no { color: #D9534F; border-color: #D9534F; }
+.mock-body { flex: 1; min-width: 0; }
+.mock-es { font-size: 13px; font-weight: 700; color: #111; }
+.mock-en { font-size: 10.5px; color: #8A8A90; }
+.mock-ex { font-size: 9.5px; color: #333; font-style: italic; margin-top: 2px; }
+.mock-dots { font-size: 8px; color: #2E9E4F; margin-top: 2px; }
+.mock-dots.zero { color: #8A8A90; }
+.mock-section {
+  font-size: 9px;
+  font-weight: 600;
+  color: #8A8A90;
+  text-transform: uppercase;
+  margin: 10px 4px 4px;
+  display: flex;
+  justify-content: space-between;
+}
+.mock-progress {
+  background: white;
+  border-radius: 12px;
+  padding: 9px 10px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #111;
+}
+.mock-bar { height: 4px; border-radius: 2px; background: #E3E3E8; margin-top: 6px; overflow: hidden; }
+.mock-bar span { display: block; height: 100%; width: 60%; background: #F28C28; }
+
+/* ── Trust bar ── */
+.trust-bar {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 24px 0;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .9rem;
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+.trust-icon { font-size: 1.2rem; }
+
+/* ── Features ── */
+.features { padding: 80px 0 0; }
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.feature-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+.feature-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-size: 1.25rem;
+  margin-bottom: 16px;
+}
+.icon-ember { background: var(--ember-pale); }
+.icon-flame { background: var(--flame-light); }
+
+.feature-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.feature-card p {
+  font-size: .92rem;
+  color: var(--ink-muted);
+  line-height: 1.55;
+}
+
+/* ── How it works ── */
+.how {
+  padding: 80px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.how-steps { display: flex; flex-direction: column; gap: 28px; }
+.step {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+.step-num {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--ember);
+  color: white;
+  font-weight: 700;
+  font-size: .9rem;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.step-body h4 { font-size: 1rem; margin-bottom: 4px; }
+.step-body p  { font-size: .9rem; color: var(--ink-muted); max-width: 38ch; }
+
+.how-visual {
+  background: var(--char-deep);
+  border-radius: 16px;
+  height: 340px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.how-visual img {
+  width: 220px;
+  height: 220px;
+  border-radius: 48px;
+  box-shadow: 0 20px 60px rgba(14,61,39,.30);
+}
+
+/* ── iCloud band ── */
+.icloud-band {
+  margin-top: 80px;
+  background: var(--char-deep);
+  border-radius: 16px;
+  padding: 48px 52px;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.icloud-band h2 {
+  color: white;
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+}
+.icloud-band p {
+  color: #C3D8CB;
+  font-size: .95rem;
+}
+.icloud-band .btn-primary { white-space: nowrap; }
+
+/* ── Responsive ── */
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; padding-top: 56px; }
+  .hero-phone { display: none; }
+  .how { grid-template-columns: 1fr; }
+  .how-visual { display: none; }
+  .icloud-band { padding: 32px 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/icon.png" alt="" class="nav-logo-icon">
+      Spanish Helper
+    </a>
+    <ul class="nav-links">
+      <li><a href="help.html">Help</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="#download" class="nav-cta">Download</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+<div class="page-content">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="hero-tag">
+        <span>📱</span> Coming soon to the App Store
+      </div>
+      <h1>The Spanish you'll actually use. <em>A few minutes a day.</em></h1>
+      <p class="hero-sub">Spanish Helper teaches the most common words and everyday phrases of Mexican Spanish — not "HVAC maintenance." Each word comes back on a schedule until it sticks, then steps aside so you can learn the next one.</p>
+      <div class="hero-actions" id="download">
+        <!-- TODO at release: swap for the real App Store link, like PrayIt's
+             <a href="https://apps.apple.com/us/app/spanish-helper/id…" class="btn btn-primary" target="_blank" rel="noopener">⬇ Download on the App Store</a> -->
+        <span class="btn btn-soon" aria-label="Spanish Helper is coming soon to the App Store">🇲🇽 Coming soon to the App Store</span>
+        <a href="help.html" class="btn btn-ghost">See how it works</a>
+      </div>
+    </div>
+
+    <div class="hero-phone" aria-hidden="true">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="mock-title">Hoy</div>
+          <div class="mock-progress">3 of 5 scheduled reviewed<div class="mock-bar"><span></span></div></div>
+          <div class="mock-section"><span>Daily</span><span>2 left</span></div>
+          <div class="mock-list">
+            <div class="mock-row">
+              <div class="mock-btns"><span class="mock-btn mock-ok">✓</span><span class="mock-btn mock-no">✕</span></div>
+              <div class="mock-body">
+                <div class="mock-es">tener</div>
+                <div class="mock-en">to have</div>
+                <div class="mock-ex">Tengo hambre. — I'm hungry.</div>
+                <div class="mock-dots">Step 1 · 2 of 4 days ●●○○</div>
+              </div>
+            </div>
+          </div>
+          <div class="mock-section"><span>No Schedule · Words</span><span>Word 3 of 40</span></div>
+          <div class="mock-list">
+            <div class="mock-row">
+              <div class="mock-btns"><span class="mock-btn mock-ok">✓</span><span class="mock-btn mock-no">✕</span></div>
+              <div class="mock-body">
+                <div class="mock-es">el mercado</div>
+                <div class="mock-en">Tap to reveal</div>
+                <div class="mock-dots zero">Step 1 · 0 of 4 days ○○○○</div>
+              </div>
+            </div>
+            <div class="mock-row">
+              <div class="mock-btns"><span class="mock-btn mock-ok">✓</span><span class="mock-btn mock-no">✕</span></div>
+              <div class="mock-body">
+                <div class="mock-es">to look for</div>
+                <div class="mock-en">Tap to reveal</div>
+                <div class="mock-dots">Step 2 · 1 of 4 days ●○○○</div>
+              </div>
+            </div>
+          </div>
+          <div class="mock-section"><span>Refresher</span></div>
+          <div class="mock-list">
+            <div class="mock-row">
+              <div class="mock-btns"><span class="mock-btn mock-ok">✓</span><span class="mock-btn mock-no">✕</span></div>
+              <div class="mock-body">
+                <div class="mock-es">thank you</div>
+                <div class="mock-en">Tap to reveal</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust bar -->
+  <div class="trust-bar">
+    <div class="trust-item"><span class="trust-icon">🇲🇽</span> Mexican Spanish, Mexican voice</div>
+    <div class="trust-item"><span class="trust-icon">✈️</span> Works offline</div>
+    <div class="trust-item"><span class="trust-icon">🔒</span> Your progress stays on your device</div>
+    <div class="trust-item"><span class="trust-icon">🚫</span> No ads. No subscriptions. No tracking.</div>
+    <div class="trust-item"><span class="trust-icon">🍎</span> iPhone · iOS 17.6 or later</div>
+  </div>
+
+  <!-- Features -->
+  <section class="features">
+    <p class="eyebrow">What's inside</p>
+    <h2 class="section-title">Everyday Spanish, one word at a time</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon icon-ember">📚</div>
+        <h3>The words that matter most</h3>
+        <p>Nearly 1,000 of the most common words in Mexican Spanish plus everyday phrases, ready in your Word Bank — most common first. Add your own any time.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-flame">🔁</div>
+        <h3>Comes back until it sticks</h3>
+        <p>Tap ✓ or ✗. Words you know come up less often; words you miss come back sooner. Nothing piles up if you skip a day.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-ember">↔️</div>
+        <h3>Two steps to really know it</h3>
+        <p>First you see the Spanish and recognize it. Then you see the English and say it in Spanish. Only then is it Learned.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-flame">💬</div>
+        <h3>Phrases, not just words</h3>
+        <p>Every common word comes with real example sentences. One tap turns a sentence into a phrase you study — and the next example appears.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-ember">🎧</div>
+        <h3>Listen in the car</h3>
+        <p>Hands-free: it says the English, pauses for you to answer out loud, then says the Spanish. Works with the screen locked and your steering-wheel buttons.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-flame">📖</div>
+        <h3>Stories and conversations</h3>
+        <p>57 short, easy stories that show how much you already understand, little dialogues for real situations, and verb tables for 236 verbs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="how">
+    <div>
+      <p class="eyebrow">How it works</p>
+      <h2 class="section-title">Ten minutes on the Today tab</h2>
+      <div class="how-steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Start a few words</h4>
+            <p>Tap <strong>Learn Something New</strong> to start the next most common words — or sort the Word Bank and mark the ones you already know.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Tap, then ✓ or ✗</h4>
+            <p>Tap a card to see the answer and hear it. Be honest — the app uses your answers to decide when to show it again.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Watch it become Learned</h4>
+            <p>After a few right days in a row, the app asks if you're ready for the next step — and later, whether you've learned it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="how-visual" aria-hidden="true"><img src="images/icon.png" alt=""></div>
+  </section>
+
+  <!-- Band -->
+  <div class="icloud-band">
+    <div>
+      <h2>No account. No internet. No streak guilt.</h2>
+      <p>Spanish Helper works on a plane or in the car, and nothing piles up if you take a day off — tomorrow just picks up where you left off.</p>
+    </div>
+    <a href="help.html" class="btn btn-primary">Read the Help</a>
+  </div>
+
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© 2026 Spanish Helper · Built by Bruce Barclay</span>
+    <ul class="footer-links">
+      <li><a href="help.html">Help</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
