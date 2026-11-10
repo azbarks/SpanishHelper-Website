@@ -27,7 +27,7 @@ shared `style.css`, no build step, no JavaScript.
   asks for **no permissions**. The voice is Apple's on-device text-to-speech. The only outside
   link is the Dreaming Spanish YouTube channel (Talk → Watch), which opens YouTube/Safari. Data is
   SwiftData + UserDefaults on device — **not iCloud-synced**, included in the device backup.
-  Export Backup goes wherever the user sends it via the share sheet. If the app ever adds sync, a
+  Export Backup (words + progress, line bookmarks, This Week counts, settings, story shelf) goes wherever the user sends it via the share sheet. If the app ever adds sync, a
   network call or a permission, update `privacy.html` and the App Store labels.
 - **Help mirrors the app** — see `../spanish-helper/CLAUDE.md` for the behavior. Things it states
   that change if the app changes: default counts (Learn Something New 5 words / 3 phrases,
