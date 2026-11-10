@@ -1,9 +1,9 @@
 # Spanish Helper Website — Claude Context
 
 Static marketing / support site for the Spanish Helper iOS app (source: `../spanish-helper`).
-To be published as a GitHub repo with GitHub Pages (like `../scoreit_website` →
-https://azbarks.github.io/ScoreIt-Website); if `../app_web/apps.html` links to it, keep the
-`help.html` filename. Same structure as the ScoreIt / BookIt / GrillIt sites — plain HTML + one
+Published as GitHub repo **azbarks/SpanishHelper-Website** with GitHub Pages (main, root) →
+https://azbarks.github.io/SpanishHelper-Website/ — `../app_web/apps.html` links to it, so keep
+that repo name and the page filenames. Same structure as the ScoreIt / BookIt / GrillIt sites — plain HTML + one
 shared `style.css`, no build step, no JavaScript.
 
 ## Pages
