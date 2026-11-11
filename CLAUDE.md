@@ -1,6 +1,6 @@
-# Spanish Helper Website — Claude Context
+# Spanish My Way Website — Claude Context
 
-Static marketing / support site for the Spanish Helper iOS app (source: `../spanish-helper`).
+Static marketing / support site for the Spanish My Way iOS app (source: `../spanish-helper`).
 Published as GitHub repo **azbarks/SpanishHelper-Website** with GitHub Pages (main, root) →
 https://azbarks.github.io/SpanishHelper-Website/ — `../app_web/apps.html` links to it, so keep
 that repo name and the page filenames. Same structure as the ScoreIt / BookIt / GrillIt sites — plain HTML + one
@@ -23,7 +23,7 @@ shared `style.css`, no build step, no JavaScript.
   (commented template is right there), and change the hero tag to "Available now on the App Store".
 
 ## Keep accurate
-- **Privacy page must match the app.** Spanish Helper makes **no network requests** of its own and
+- **Privacy page must match the app.** Spanish My Way makes **no network requests** of its own and
   asks for **no permissions**. The voice is Apple's on-device text-to-speech. The only outside
   link is the Dreaming Spanish YouTube channel (Talk → Watch), which opens YouTube/Safari. Data is
   SwiftData + UserDefaults on device — **not iCloud-synced**, included in the device backup.
