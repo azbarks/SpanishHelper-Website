@@ -25,7 +25,8 @@ shared `style.css`, no build step, no JavaScript.
 ## Keep accurate
 - **Privacy page must match the app.** Spanish My Way makes **no network requests** of its own and
   asks for **no permissions**. The voice is Apple's on-device text-to-speech. The only outside
-  link is the Dreaming Spanish YouTube channel (Talk → Watch), which opens YouTube/Safari. Data is
+  links are the Dreaming Spanish YouTube channel (Talk → Watch) and Settings → About's links to this
+  site (help.html, index, support.html, privacy.html — keep those filenames), all opening Safari/YouTube. Data is
   SwiftData + UserDefaults on device — **not iCloud-synced**, included in the device backup.
   Export Backup (words + progress, line bookmarks, This Week counts, settings, story shelf) goes wherever the user sends it via the share sheet. If the app ever adds sync, a
   network call or a permission, update `privacy.html` and the App Store labels.
