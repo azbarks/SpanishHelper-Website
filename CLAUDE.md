@@ -37,4 +37,6 @@ shared `style.css`, no build step, no JavaScript.
   It Never Remind, Learn It, Not Now, Undo); the Refresher miss question (Study It Again = one
   correct day; Keep It Learned = first in the Refresher daily until right); "No past tense yet"
   (going to counts as present); 236 verbs; 57 stories in 3 levels; story shelf.
+  Tabs since build 41: Today / Words / Verbs / Talk / **Test** — Settings is the gear at the top left of
+  Today. Test: Learned words, 10–200 or All, English shown, misses first next time, doesn't change progress.
 - Mexican Spanish only, as in the app: no vosotros, no Spain words.
