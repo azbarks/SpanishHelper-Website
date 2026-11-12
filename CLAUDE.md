@@ -36,7 +36,8 @@ shared `style.css`, no build step, no JavaScript.
   left: Daily or More Often + Learned / Study Again + Never Remind); Sort buttons (I Know It, Know
   It Never Remind, Learn It, Not Now, Undo); the Refresher miss question (Study It Again = one
   correct day; Keep It Learned = first in the Refresher daily until right); "No past tense yet"
-  (going to counts as present); 236 verbs; 57 stories in 3 levels; story shelf.
+  (going to counts as present); 236 verbs; 57 stories in 3 levels; story shelf; 30 dialogues in 4 groups
+  (Home & Friends / Out and About / Shopping & Errands / Health); no Ask Today (removed build 43).
   Tabs since build 41: Today / Words / Verbs / Talk / **Test** — Settings is the gear at the top left of
   Today. Test: Learned words, 10–200 or All, English or Spanish first, misses first next time and lead the
   Refresher from the next day until answered right; otherwise doesn't change progress.
