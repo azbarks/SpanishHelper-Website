@@ -42,4 +42,6 @@ shared `style.css`, no build step, no JavaScript.
   Tabs since build 41: Today / Words / Verbs / Talk / **Test** — Settings is the gear at the top left of
   Today. Test: Learned words, 10–200 or All, English or Spanish first, misses first next time and lead the
   Refresher from the next day until answered right; otherwise doesn't change progress.
+  Results: each missed word → Study Again / Back to Word Bank, plus Study All Again (build 45);
+  Test → Missed in Tests lists learned words by test misses; Learned list shows "Missed N times in tests".
 - Mexican Spanish only, as in the app: no vosotros, no Spain words.
