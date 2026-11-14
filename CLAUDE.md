@@ -32,11 +32,11 @@ shared `style.css`, no build step, no JavaScript.
   network call or a permission, update `privacy.html` and the App Store labels.
 - **Help mirrors the app** — see `../spanish-helper/CLAUDE.md` for the behavior. Things it states
   that change if the app changes: default counts (Learn Something New 5 words / 3 phrases,
-  Refresher 3, No Schedule page 10 words / 5 phrases, step goals 4 + 4, Listen answer time 4 s
+  Refresher 3, No Schedule page 10 words / 5 phrases, step goals 4 + 4, back-to-learned 2, Listen answer time 4 s
   words / 6 s phrases); the swipe table (right: Pause / Less Often / Still Know It / Bring Back Now;
   left: Daily or More Often + Learned / Study Again + Never Remind); Sort buttons (I Know It, Know
-  It Never Remind, Learn It, Not Now, Undo); the Refresher miss question (Study It Again = one
-  correct day; Keep It Learned = first in the Refresher daily until right); "No past tense yet"
+  It Never Remind, Learn It, Not Now, Undo); the Refresher miss question (Study It Again = 2 right
+  days, Settings → Learning Steps "Back to learned after"; test Study Again works the same; Keep It Learned = first in the Refresher daily until right); "No past tense yet"
   (going to counts as present); 236 verbs; 57 stories in 3 levels; story shelf; 30 dialogues in 4 groups
   (Home & Friends / Out and About / Shopping & Errands / Health); no Ask Today (removed build 43).
   Tabs since build 41: Today / Words / Verbs / Talk / **Test** — Settings is the gear at the top left of
